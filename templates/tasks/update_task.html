@@ -1,7 +1,14 @@
-<h3>Update Task</h3>
+{% extends 'base.html' %}
+{% block content %}
+    <h3 class="center">Update Task</h3>
 
-<form method="post" action="">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" name="Update Task">
-</form>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form }}
+        <div>
+            <button class="btn waves-effect waves-light" type="submit" name="Update">Update
+                <i class="material-icons right">update</i>
+            </button>
+        </div>
+    </form>
+{% endblock %}

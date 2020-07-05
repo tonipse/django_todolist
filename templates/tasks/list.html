@@ -1,19 +1,32 @@
-<h2>Tasks</h2>
+{% extends 'base.html' %}
+{% block content %}
 
-<form method="post" action="/">
-    {% csrf_token %}
-    {{ form.title }}
-    <input type="submit" name="Create Task">
-</form>
 
-{% for task in tasks %}
-    <div>
-        <a href="{% url 'update_task' task.id %}">Update</a>
-        <a href="{% url 'delete' task.id %}">Delete</a>
-        {% if task.complete == True %}
-            <strike>{{ task }}</strike>
-        {% else %}
-            <span>{{ task }}</span>
-        {% endif %}
-    </div>
-{% endfor %}
+    <form method="post" action="/">
+        {% csrf_token %}
+        {{ form.title }}
+        <button class=" blue lighten-2 btn waves-effect waves-light " type="submit" name="Add Task">Add Task
+            <i class="material-icons right">add</i>
+        </button>
+    </form>
+    <ul class="collection">
+        {% for task in tasks %}
+            <li class="collection-item">
+                <div>
+                    {% if task.complete == True %}
+                        <strike>{{ task }}</strike>
+                    {% else %}
+                        <span>{{ task }}</span>
+                    {% endif %}
+                    <span class="right">
+                    <a class="deep-purple lighten-1 waves-effect waves-light btn"
+                       href="{% url 'update_task' task.id %}">
+                        <i class="material-icons left">format_align_justify</i>Update</a>
+                    <a class="red lighten-1 waves-effect waves-light btn" href="{% url 'delete' task.id %}">
+                        <i class="material-icons left">delete</i>Delete</a>
+                     </span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

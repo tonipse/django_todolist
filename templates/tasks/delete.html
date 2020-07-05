@@ -1,8 +1,13 @@
-<p>Are you sure you want to delete "{{ item }}"?</p>
+{% extends 'base.html' %}
+{% block content %}
+    <h5>Are you sure you want to delete "{{ item }}"?</h5>
 
-<a href="{% url 'list' %}">Cancel</a>
+    <form method="post" action="">
+        {% csrf_token %}
+        <a href="{% url 'list' %}" class="waves-effect waves-light btn"><i class="material-icons left">cancel</i>Cancel</a>
 
-<form method="post" action="">
-    {% csrf_token %}
-    <input type="submit" name="Confirm">
-</form>
+        <button class="red lighten-1 waves-effect waves-light btn" type="submit" name="Confirm">
+            <i class="material-icons left">delete</i>Delete
+        </button>
+    </form>
+{% endblock %}
