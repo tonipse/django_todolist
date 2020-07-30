@@ -25,7 +25,7 @@ SECRET_KEY = 'w-w*^_^jvad)blkl(1fnhgvdhkq+p$r#7-sbo3$52ybku!zfmv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['todolisttoni.herokuapp.com']
+ALLOWED_HOSTS = ['todolisttoni.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
