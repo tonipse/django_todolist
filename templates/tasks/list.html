@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <form method="post" action="/">
+    <form method="post" autocomplete="new-password" action="/">
         {% csrf_token %}
         {{ form.title }}
         <button class=" blue lighten-2 btn waves-effect waves-light " type="submit" name="Add Task">Add Task
@@ -18,7 +18,7 @@
                     {% else %}
                         <span>{{ task }}</span>
                     {% endif %}
-                    <span class="right">
+                    <span class="right ">
                     <a class="deep-purple lighten-1 waves-effect waves-light btn"
                        href="{% url 'update_task' task.id %}">
                         <i class="material-icons left">format_align_justify</i>Update</a>

@@ -10,6 +10,7 @@ class TaskForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'complete': forms.CheckboxInput(attrs={'class': 'my-checkbox'}),
-            'title': forms.TextInput(attrs={'placeholder': 'Task', 'class': 'center', 'style': 'font-size: 20pt'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Task', 'class': 'center', 'style': 'font-size: 20pt',
+                                            'autocomplete': 'new-password'}),
 
         }
